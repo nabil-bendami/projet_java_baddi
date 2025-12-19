@@ -1,0 +1,74 @@
+spring:
+  application:
+    name: presence-backend
+  
+  # H2 Database Configuration (Default)
+  datasource:
+    url: jdbc:h2:mem:presencedb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  
+  # MySQL Configuration (Uncomment to use MySQL)
+  # datasource:
+  #   url: jdbc:mysql://localhost:3306/presencedb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+  #   driver-class-name: com.mysql.cj.jdbc.Driver
+  #   username: root
+  #   password: your_password
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+        # dialect: org.hibernate.dialect.MySQLDialect  # Uncomment for MySQL
+  
+  # H2 Console (for development)
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  
+  # Jackson Configuration
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    time-zone: UTC
+
+# Server Configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+# JWT Configuration
+jwt:
+  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+  expiration: 86400000  # 24 hours in milliseconds
+
+# CORS Configuration
+cors:
+  allowed-origins:
+    - http://localhost:3000
+    - http://localhost:8081
+    - http://10.0.2.2:8080
+    - http://10.0.2.2:3000
+  allowed-methods:
+    - GET
+    - POST
+    - PUT
+    - DELETE
+    - OPTIONS
+  allowed-headers:
+    - "*"
+  allow-credentials: true
+
+# Logging
+logging:
+  level:
+    ma.estsb.presencebackend: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG

@@ -1,0 +1,44 @@
+name: frontend_flutter
+description: "Application de gestion de présence"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  
+  # State Management
+  provider: ^6.1.1
+  
+  # Navigation
+  go_router: ^13.0.0
+  
+  # Internationalization
+  intl: 0.20.2
+  
+  # Charts
+  fl_chart: ^0.66.0
+  
+  # Local Storage
+  shared_preferences: ^2.2.2
+  
+  # HTTP Client
+  dio: ^5.4.0
+  
+  # Secure Storage
+  flutter_secure_storage: ^9.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
